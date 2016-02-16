@@ -398,7 +398,7 @@ void setup()
   }
 
   DeviceName = HandleEeprom(devicename_Address, "read");
-
+  WiFi.hostname(DeviceName);
   MatrixEnabled = HandleEeprom(enablematrix_Address, "read");
   if (MatrixEnabled == "1")
   {
