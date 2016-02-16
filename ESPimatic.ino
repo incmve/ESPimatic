@@ -512,6 +512,8 @@ void setup()
       Serial.println(ssidStored);
       Serial.print("IP address: ");
       Serial.println(WiFi.localIP());
+      Serial.print("Hostname: ");
+      Serial.println(DeviceName);
       if (MatrixEnabled == "1")
       {
         // Display 'OK' on LED's
