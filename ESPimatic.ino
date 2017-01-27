@@ -398,7 +398,7 @@ void setup()
   }
 
   DeviceName = HandleEeprom(devicename_Address, "read");
-  WiFi.hostname(DeviceName);
+
   MatrixEnabled = HandleEeprom(enablematrix_Address, "read");
   if (MatrixEnabled == "1")
   {
@@ -512,8 +512,6 @@ void setup()
       Serial.println(ssidStored);
       Serial.print("IP address: ");
       Serial.println(WiFi.localIP());
-      Serial.print("Hostname: ");
-      Serial.println(DeviceName);
       if (MatrixEnabled == "1")
       {
         // Display 'OK' on LED's
@@ -2291,7 +2289,7 @@ void send_data(String data, String sensor)
   String str = String(PimaticUserStored) + ":" + String(PimaticPassStored);
   str.toCharArray(uname, BASE64_LEN);
   memset(unameenc, 0, sizeof(unameenc));
-  //base64_encode(unameenc, uname, strlen(uname));
+//  base64_encode(unameenc, uname, strlen(uname));
   base64 encoder;
   String auth = PimaticUserStored;
   auth += ":";
@@ -2343,7 +2341,7 @@ String get_data(String var)
   String str = String(PimaticUserStored) + ":" + String(PimaticPassStored);
   str.toCharArray(uname, BASE64_LEN);
   memset(unameenc, 0, sizeof(unameenc));
-//  base64_encode(unameenc, uname, strlen(uname));
+ // base64_encode(unameenc, uname, strlen(uname));
 base64 encoder;
   String auth = PimaticUserStored;
   auth += ":";
