@@ -35,7 +35,7 @@ IRsend irsend(5); //an IR led is connected to GPIO pin 0
 int TelnetMenu = -1;
 
 String sep = "____";
-String ESPimaticVersion = "0.1.26";
+String ESPimaticVersion = "0.1.26A";
 String DS18B20Enabled = "0";
 String DHTEnabled = "0";
 String MatrixEnabled = "0";
@@ -455,6 +455,7 @@ void setup()
     Serial.println("Connecting to :");
     Serial.println(ssidStored);
     WiFi.mode(WIFI_STA);
+    WiFi.hostname(HandleEeprom(devicename_Address, "read"));
     WiFi.begin(ssidStored.c_str(), passStored.c_str());
     while (WiFi.status() != WL_CONNECTED && i < 31 && MatrixEnabled == "1")
     {
@@ -2839,3 +2840,4 @@ String getValue(String data, char separator, int index)
 
   return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
 }
+ 
